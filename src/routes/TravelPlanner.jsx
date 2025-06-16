@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoadingSpinner from '../components/shared/LoadingSpinner'
+import geminiService from '../services/geminiService.js'
+import { TRAVEL_TYPES, SUCCESS_MESSAGES } from '../utils/constants.js'
 
 function TravelPlanner() {
     const navigate = useNavigate()
@@ -15,17 +17,6 @@ function TravelPlanner() {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
 
-    const travelTypes = [
-        'Turismo',
-        'Negócios',
-        'Aventura',
-        'Romântico',
-        'Família',
-        'Cultural',
-        'Relaxamento',
-        'Gastronômico'
-    ]
-
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData(prev => ({
@@ -35,131 +26,20 @@ function TravelPlanner() {
         if (error) setError('')
     }
 
+    // 🤖 FUNÇÃO PRINCIPAL USANDO O SERVIÇO GEMINI
     const generateTravelPlan = async () => {
         try {
             const user = JSON.parse(localStorage.getItem('user') || '{}')
 
-            // Prompt para a IA Gemini
-            const prompt = `
-        Crie um plano completo de viagem para:
-        
-        DESTINO: ${formData.destination}
-        DURAÇÃO: ${formData.duration} dias
-        TIPO DE VIAGEM: ${formData.travelType}
-        NÚMERO DE VIAJANTES: ${formData.travelers}
-        ORÇAMENTO ESTIMADO: ${formData.budget || 'Não informado'}
-        DATA INICIAL: ${formData.startDate}
-        
-        Por favor, forneça um plano estruturado em JSON com as seguintes seções:
-        
-        {
-          "baggage": {
-            "clothes": ["lista de roupas recomendadas"],
-            "hygiene": ["lista de itens de higiene"],
-            "accessories": ["lista de acessórios"],
-            "electronics": ["lista de eletrônicos"],
-            "documents": ["documentos necessários"],
-            "luggage_size": "tamanho recomendado da mala"
-          },
-          "tourism": {
-            "attractions": ["pontos turísticos principais"],
-            "hidden_gems": ["lugares menos conhecidos"],
-            "daily_itinerary": ["roteiro dia a dia"],
-            "food_recommendations": ["restaurantes e pratos típicos"],
-            "cultural_tips": ["dicas culturais importantes"],
-            "transportation": ["opções de transporte local"]
-          },
-          "budget": {
-            "accommodation": "valor médio hospedagem por dia",
-            "food": "valor médio alimentação por dia",
-            "transportation": "valor médio transporte",
-            "activities": "valor médio atividades por dia",
-            "total_estimated": "estimativa total da viagem",
-            "money_saving_tips": ["dicas para economizar"]
-          },
-          "weather": {
-            "climate_description": "descrição do clima na época",
-            "temperature_range": "faixa de temperatura",
-            "rain_probability": "probabilidade de chuva",
-            "what_to_expect": "o que esperar do tempo"
-          },
-          "useful_tips": [
-            "dicas gerais importantes para o destino"
-          ]
-        }
-        
-        Seja específico e detalhado. Considere a época do ano, o clima local, a cultura do destino e o tipo de viagem especificado.
-      `
+            console.log('🚀 Iniciando geração do plano de viagem...')
 
-            // Chamada para a API Gemini
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    contents: [{
-                        parts: [{
-                            text: prompt
-                        }]
-                    }]
-                })
-            })
+            // 🔥 Usar o serviço dedicado do Gemini
+            const travelPlan = await geminiService.generateTravelPlan(formData)
 
-            if (!response.ok) {
-                throw new Error('Erro na API do Gemini')
-            }
+            console.log('✅ Plano gerado:', travelPlan)
 
-            const data = await response.json()
-            const generatedText = data.candidates[0].content.parts[0].text
-
-            // Tentar extrair JSON da resposta
-            let travelPlan
-            try {
-                const jsonMatch = generatedText.match(/\{[\s\S]*\}/)
-                if (jsonMatch) {
-                    travelPlan = JSON.parse(jsonMatch[0])
-                } else {
-                    throw new Error('Formato JSON não encontrado')
-                }
-            } catch (parseError) {
-                // Se não conseguir parsear, criar estrutura padrão
-                travelPlan = {
-                    baggage: {
-                        clothes: ['Roupas adequadas ao clima', 'Sapatos confortáveis'],
-                        hygiene: ['Escova de dentes', 'Pasta de dentes', 'Shampoo'],
-                        accessories: ['Óculos de sol', 'Protetor solar'],
-                        electronics: ['Carregador de celular', 'Câmera'],
-                        documents: ['Passaporte', 'Documentos de identidade'],
-                        luggage_size: 'Mala de tamanho médio'
-                    },
-                    tourism: {
-                        attractions: ['Pontos turísticos principais da região'],
-                        hidden_gems: ['Lugares únicos para explorar'],
-                        daily_itinerary: ['Roteiro personalizado'],
-                        food_recommendations: ['Pratos típicos locais'],
-                        cultural_tips: ['Dicas culturais importantes'],
-                        transportation: ['Opções de transporte']
-                    },
-                    budget: {
-                        accommodation: 'R$ 150-300/dia',
-                        food: 'R$ 80-150/dia',
-                        transportation: 'R$ 50-100/dia',
-                        activities: 'R$ 100-200/dia',
-                        total_estimated: 'Estimativa será calculada',
-                        money_saving_tips: ['Dicas de economia']
-                    },
-                    weather: {
-                        climate_description: 'Clima da região na época escolhida',
-                        temperature_range: 'Faixa de temperatura',
-                        rain_probability: 'Probabilidade de chuva',
-                        what_to_expect: 'Condições climáticas esperadas'
-                    },
-                    useful_tips: ['Dicas importantes para a viagem']
-                }
-            }
-
-            // Salvar no JSON Server
+            // 💾 Salvar no JSON Server
+            console.log('💾 Salvando viagem no banco de dados...')
             const travelData = {
                 ...formData,
                 userId: user.id,
@@ -177,14 +57,17 @@ function TravelPlanner() {
             })
 
             if (!saveResponse.ok) {
-                throw new Error('Erro ao salvar viagem')
+                throw new Error('Erro ao salvar viagem no banco de dados')
             }
 
             const savedTravel = await saveResponse.json()
+            console.log('✅ Viagem salva com sucesso:', savedTravel.id)
+
+            // 🚀 Redirecionar para página de resultados
             navigate(`/app/results/${savedTravel.id}`)
 
         } catch (error) {
-            console.error('Erro ao gerar plano de viagem:', error)
+            console.error('❌ Erro ao gerar plano de viagem:', error)
             throw error
         }
     }
@@ -195,7 +78,7 @@ function TravelPlanner() {
         setError('')
 
         try {
-            // Validações
+            // ✅ Validações
             if (!formData.destination.trim()) {
                 throw new Error('Por favor, informe o destino')
             }
@@ -205,10 +88,37 @@ function TravelPlanner() {
             if (!formData.duration || formData.duration < 1) {
                 throw new Error('Por favor, informe a duração da viagem')
             }
+            if (!formData.travelers || formData.travelers < 1) {
+                throw new Error('Número de viajantes deve ser pelo menos 1')
+            }
+
+            // 🔑 Verificar configuração do Gemini
+            const geminiStats = geminiService.getStats()
+            if (!geminiStats.apiKeyConfigured) {
+                throw new Error('Chave da API Gemini não configurada. Verifique o arquivo .env')
+            }
+
+            console.log('🤖 Status do Gemini:', geminiStats)
 
             await generateTravelPlan()
+
         } catch (error) {
+            console.error('❌ Erro no handleSubmit:', error)
             setError(error.message)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+    // 🧪 Função para testar conexão com Gemini
+    const testGeminiConnection = async () => {
+        try {
+            setIsLoading(true)
+            const testPrompt = "Responda apenas: 'Conexão funcionando!'"
+            const response = await geminiService.generateContent(testPrompt)
+            alert(`✅ Teste bem-sucedido! Resposta: ${response.substring(0, 100)}`)
+        } catch (error) {
+            alert(`❌ Erro no teste: ${error.message}`)
         } finally {
             setIsLoading(false)
         }
@@ -229,6 +139,23 @@ function TravelPlanner() {
                     <p className="text-gray-600">
                         Informe os detalhes da sua viagem e nossa IA criará um plano completo personalizado
                     </p>
+                    
+                    {/* Debug Info - apenas em desenvolvimento */}
+                    {import.meta.env.DEV && (
+                        <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                            <p className="text-xs text-blue-700">
+                                🔧 Modo Desenvolvimento | 
+                                API Key: {import.meta.env.VITE_GEMINI_API_KEY ? '✅ Configurada' : '❌ Não configurada'}
+                            </p>
+                            <button
+                                onClick={testGeminiConnection}
+                                className="mt-2 text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700"
+                                disabled={isLoading}
+                            >
+                                🧪 Testar Conexão Gemini
+                            </button>
+                        </div>
+                    )}
                 </div>
 
                 {/* Error Message */}
@@ -256,7 +183,7 @@ function TravelPlanner() {
                                 value={formData.destination}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                 placeholder="Ex: Paris, França"
                             />
                         </div>
@@ -274,7 +201,7 @@ function TravelPlanner() {
                                 onChange={handleChange}
                                 required
                                 min={new Date().toISOString().split('T')[0]}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                             />
                         </div>
 
@@ -292,7 +219,7 @@ function TravelPlanner() {
                                 required
                                 min="1"
                                 max="365"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                 placeholder="Ex: 7"
                             />
                         </div>
@@ -311,7 +238,7 @@ function TravelPlanner() {
                                 required
                                 min="1"
                                 max="20"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                             />
                         </div>
 
@@ -326,9 +253,9 @@ function TravelPlanner() {
                                 value={formData.travelType}
                                 onChange={handleChange}
                                 required
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                             >
-                                {travelTypes.map(type => (
+                                {TRAVEL_TYPES.map(type => (
                                     <option key={type} value={type}>{type}</option>
                                 ))}
                             </select>
@@ -345,7 +272,7 @@ function TravelPlanner() {
                                 name="budget"
                                 value={formData.budget}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                                 placeholder="Ex: R$ 3.000"
                             />
                         </div>
@@ -356,32 +283,82 @@ function TravelPlanner() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 transform hover:scale-105 flex items-center space-x-2 mx-auto"
+                            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-8 py-4 rounded-lg transition-all duration-200 transform hover:scale-105 flex items-center space-x-2 mx-auto shadow-lg"
                         >
-                            <span>🤖</span>
+                            <span className="text-xl">🤖</span>
                             <span>Gerar Plano de Viagem Inteligente</span>
                         </button>
+                        
+                        <p className="text-xs text-gray-500 mt-2">
+                            Powered by Google Gemini AI ⚡
+                        </p>
                     </div>
                 </form>
 
                 {/* Features Info */}
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                        <div className="text-3xl mb-2">🎒</div>
-                        <h3 className="font-semibold text-gray-800 mb-1">Bagagem Inteligente</h3>
-                        <p className="text-sm text-gray-600">Lista personalizada baseada no clima e atividades</p>
+                    <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-200">
+                        <div className="text-4xl mb-3">🎒</div>
+                        <h3 className="font-bold text-gray-800 mb-2">Bagagem Inteligente</h3>
+                        <p className="text-sm text-gray-600">
+                            Lista personalizada baseada no clima, cultura e atividades do destino
+                        </p>
                     </div>
 
-                    <div className="text-center p-4 bg-green-50 rounded-lg">
-                        <div className="text-3xl mb-2">🗺️</div>
-                        <h3 className="font-semibold text-gray-800 mb-1">Roteiro Personalizado</h3>
-                        <p className="text-sm text-gray-600">Pontos turísticos e atividades recomendadas</p>
+                    <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-xl border border-green-200">
+                        <div className="text-4xl mb-3">🗺️</div>
+                        <h3 className="font-bold text-gray-800 mb-2">Roteiro Personalizado</h3>
+                        <p className="text-sm text-gray-600">
+                            Pontos turísticos, restaurantes e atividades recomendadas pela IA
+                        </p>
                     </div>
 
-                    <div className="text-center p-4 bg-purple-50 rounded-lg">
-                        <div className="text-3xl mb-2">💰</div>
-                        <h3 className="font-semibold text-gray-800 mb-1">Orçamento Detalhado</h3>
-                        <p className="text-sm text-gray-600">Estimativas precisas por categoria de gasto</p>
+                    <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl border border-purple-200">
+                        <div className="text-4xl mb-3">💰</div>
+                        <h3 className="font-bold text-gray-800 mb-2">Orçamento Detalhado</h3>
+                        <p className="text-sm text-gray-600">
+                            Estimativas precisas e dicas de economia para sua viagem
+                        </p>
+                    </div>
+                </div>
+
+                {/* AI Info Section */}
+                <div className="mt-8 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-200">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                        <div className="text-3xl">🤖</div>
+                        <h3 className="text-xl font-bold text-gray-800">Powered by Gemini AI</h3>
+                    </div>
+                    <p className="text-center text-gray-600 text-sm">
+                        Nossa IA considera <strong>clima, cultura local, época do ano, tipo de viagem</strong> e suas preferências 
+                        para criar um plano único e personalizado. Cada recomendação é baseada em dados atualizados e 
+                        experiências reais de viajantes.
+                    </p>
+                </div>
+
+                {/* Example Destinations */}
+                <div className="mt-8">
+                    <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">
+                        🌟 Destinos Populares
+                    </h3>
+                    <div className="flex flex-wrap justify-center gap-3">
+                        {[
+                            'Paris, França',
+                            'Tóquio, Japão', 
+                            'Nova York, EUA',
+                            'Barcelona, Espanha',
+                            'Rio de Janeiro, Brasil',
+                            'Londres, Inglaterra',
+                            'Bangkok, Tailândia',
+                            'Buenos Aires, Argentina'
+                        ].map((destination) => (
+                            <button
+                                key={destination}
+                                onClick={() => setFormData(prev => ({ ...prev, destination }))}
+                                className="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm text-gray-700 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-200"
+                            >
+                                {destination}
+                            </button>
+                        ))}
                     </div>
                 </div>
             </div>

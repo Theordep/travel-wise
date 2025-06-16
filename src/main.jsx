@@ -8,7 +8,7 @@ import './index.css'
 import Home from './routes/Home.jsx'
 import Login from './routes/Login.jsx'
 import Users from './routes/Users.jsx'
-import Services from './routes/Services.jsx'
+import MyTravels from './routes/MyTravels.jsx'  // ✅ NOVO - Substitui Services
 import TravelPlanner from './routes/TravelPlanner.jsx'
 import Results from './routes/Results.jsx'
 import ErrorPage from './routes/ErrorPage.jsx'
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
         element: <Users />
       },
       {
-        path: "services",
-        element: <Services />
+        path: "my-travels",        // ✅ NOVA ROTA - Substitui "services"
+        element: <MyTravels />
       },
       {
         path: "travel-planner",

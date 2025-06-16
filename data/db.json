@@ -1,341 +1,559 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Administrador",
-            "email": "admin@travelwise.com",
-            "password": "admin123",
-            "role": "admin",
-            "phone": "(48) 99999-9999",
-            "address": "Criciúma, Santa Catarina, Brasil"
+  "users": [
+    {
+      "id": "1",
+      "name": "Administrador",
+      "email": "admin@travelwise.com",
+      "password": "admin123",
+      "role": "admin",
+      "phone": "(48) 99999-9999",
+      "address": "Criciúma, Santa Catarina, Brasil"
+    },
+    {
+      "id": "2",
+      "name": "João Silva",
+      "email": "joao@email.com",
+      "password": "123456",
+      "role": "user",
+      "phone": "(48) 98888-8888",
+      "address": "Florianópolis, Santa Catarina, Brasil"
+    },
+    {
+      "id": "3",
+      "name": "Maria Santos",
+      "email": "maria@email.com",
+      "password": "123456",
+      "role": "user",
+      "phone": "(48) 97777-7777",
+      "address": "Tubarão, Santa Catarina, Brasil"
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "name": "Consultoria Completa de Viagem",
+      "description": "Planejamento completo e personalizado da sua viagem dos sonhos. Inclui análise de destino, roteiro detalhado, recomendações de hospedagem e atividades exclusivas.",
+      "price": "R$ 299,00",
+      "duration": "3 horas",
+      "category": "Consultoria"
+    },
+    {
+      "id": "2",
+      "name": "Recomendação Inteligente de Bagagem",
+      "description": "Lista personalizada de itens essenciais para sua viagem, baseada em IA que considera clima, duração, atividades e destino específico.",
+      "price": "R$ 89,00",
+      "duration": "45 minutos",
+      "category": "Planejamento"
+    },
+    {
+      "id": "3",
+      "name": "Roteiro Turístico Premium",
+      "description": "Roteiro exclusivo com pontos turísticos principais, lugares únicos, restaurantes selecionados e experiências autênticas locais.",
+      "price": "R$ 199,00",
+      "duration": "2 horas",
+      "category": "Turismo"
+    },
+    {
+      "id": "4",
+      "name": "Orçamento e Planejamento Financeiro",
+      "description": "Estimativa detalhada de custos da viagem com dicas de economia, melhores épocas para viajar e estratégias para maximizar seu orçamento.",
+      "price": "R$ 149,00",
+      "duration": "1,5 horas",
+      "category": "Planejamento"
+    },
+    {
+      "id": "5",
+      "name": "Assistência para Documentação",
+      "description": "Orientação completa sobre documentos necessários, vistos, vacinas obrigatórias e procedimentos burocráticos para seu destino.",
+      "price": "R$ 129,00",
+      "duration": "1 hora",
+      "category": "Documentação"
+    },
+    {
+      "id": "6",
+      "name": "Seguro Viagem Personalizado",
+      "description": "Análise e recomendação do melhor seguro viagem baseado no seu perfil, destino e atividades planejadas.",
+      "price": "R$ 79,00",
+      "duration": "30 minutos",
+      "category": "Seguro"
+    },
+    {
+      "id": "7",
+      "name": "Reserva de Hospedagem Premium",
+      "description": "Consultoria e reserva de acomodações especiais, desde hotéis boutique até experiências únicas como casas locais e eco-lodges.",
+      "price": "R$ 199,00",
+      "duration": "2 horas",
+      "category": "Hospedagem"
+    },
+    {
+      "id": "8",
+      "name": "Transporte e Logística",
+      "description": "Planejamento completo de transporte: passagens aéreas, transfers, aluguel de veículos e transporte público local.",
+      "price": "R$ 179,00",
+      "duration": "1,5 horas",
+      "category": "Transporte"
+    }
+  ],
+  "travels": [
+    {
+      "id": "1",
+      "destination": "Paris, França",
+      "startDate": "2025-08-15",
+      "duration": "10",
+      "travelType": "Romântico",
+      "budget": "R$ 8.000",
+      "travelers": "2",
+      "userId": 1,
+      "status": "planned",
+      "createdAt": "2025-06-04T10:30:00.000Z",
+      "travelPlan": {
+        "baggage": {
+          "clothes": [
+            "Roupas elegantes para jantares românticos",
+            "Sapatos confortáveis para caminhadas",
+            "Casaco para o clima de agosto",
+            "Roupas casuais para passeios diurnos",
+            "Roupa íntima para 12 dias",
+            "Pijamas confortáveis"
+          ],
+          "hygiene": [
+            "Escova e pasta de dentes",
+            "Shampoo e condicionador",
+            "Desodorante",
+            "Perfume especial",
+            "Produtos de cuidado facial",
+            "Protetor solar",
+            "Medicamentos pessoais"
+          ],
+          "accessories": [
+            "Óculos de sol",
+            "Carteira e documentos",
+            "Relógio",
+            "Joias para ocasiões especiais",
+            "Lenços e cachecóis",
+            "Guarda-chuva compacto"
+          ],
+          "electronics": [
+            "Carregador de celular",
+            "Câmera fotográfica",
+            "Adaptador de tomada europeu",
+            "Power bank",
+            "Fones de ouvido"
+          ],
+          "documents": [
+            "Passaporte válido",
+            "Visa (se necessário)",
+            "Passagens aéreas",
+            "Reservas de hotel",
+            "Seguro viagem",
+            "Cartão de crédito internacional",
+            "Carteira de motorista internacional"
+          ],
+          "luggage_size": "Mala média (23kg) + bagagem de mão"
         },
-        {
-            "id": 2,
-            "name": "João Silva",
-            "email": "joao@email.com",
-            "password": "123456",
-            "role": "user",
-            "phone": "(48) 98888-8888",
-            "address": "Florianópolis, Santa Catarina, Brasil"
+        "tourism": {
+          "attractions": [
+            "Torre Eiffel - Vista panorâmica ao pôr do sol",
+            "Museu do Louvre - Mona Lisa e obras clássicas",
+            "Catedral de Notre-Dame - Arquitetura gótica",
+            "Arco do Triunfo - História e vistas da Champs-Élysées",
+            "Montmartre e Sacré-Cœur - Charme boêmio",
+            "Cruzeiro no Rio Sena - Romance ao entardecer"
+          ],
+          "hidden_gems": [
+            "Jardins de Luxembourg - Piquenique romântico",
+            "Île Saint-Louis - Sorvetes da Berthillon",
+            "Marché des Enfants Rouges - Mercado histórico",
+            "Promenade Plantée - Parque elevado único",
+            "Musée Rodin - Jardim de esculturas íntimo"
+          ],
+          "daily_itinerary": [
+            "Dia 1-2: Chegada e Centro Histórico (Louvre, Île de la Cité)",
+            "Dia 3-4: Montmartre e Norte de Paris",
+            "Dia 5-6: Torre Eiffel, Champs-Élysées e Arco do Triunfo",
+            "Dia 7-8: Versailles (bate-volta) e Saint-Germain",
+            "Dia 9-10: Marais, compras e passeios finais"
+          ],
+          "food_recommendations": [
+            "L'Ami Jean - Bistrô tradicional francês",
+            "Du Pain et des Idées - Melhor padaria artesanal",
+            "L'As du Fallafel - Especialidade do Marais",
+            "Café de Flore - Café histórico em Saint-Germain",
+            "Breizh Café - Crepes gourmet modernos",
+            "Pierre Hermé - Macarons de alta qualidade"
+          ],
+          "cultural_tips": [
+            "Franceses valorizam educação - sempre cumprimente",
+            "Jantares são tardios (19h-21h)",
+            "Domingos muitas lojas fecham",
+            "Gorjetas são incluídas, mas 5-10% extras são apreciados",
+            "Evite falar alto em transportes públicos"
+          ],
+          "transportation": [
+            "Métro - Sistema eficiente, compre passe semanal",
+            "Uber/Taxi - Para trajetos noturnos",
+            "Vélib' - Bicicletas compartilhadas",
+            "Caminhadas - Centro é muito walkable",
+            "RER - Para Versailles e aeroportos"
+          ]
         },
-        {
-            "id": 3,
-            "name": "Maria Santos",
-            "email": "maria@email.com",
-            "password": "123456",
-            "role": "user",
-            "phone": "(48) 97777-7777",
-            "address": "Tubarão, Santa Catarina, Brasil"
-        }
-    ],
-    "services": [
-        {
-            "id": 1,
-            "name": "Consultoria Completa de Viagem",
-            "description": "Planejamento completo e personalizado da sua viagem dos sonhos. Inclui análise de destino, roteiro detalhado, recomendações de hospedagem e atividades exclusivas.",
-            "price": "R$ 299,00",
-            "duration": "3 horas",
-            "category": "Consultoria"
+        "budget": {
+          "accommodation": "€80-120/dia",
+          "food": "€60-90/dia",
+          "transportation": "€150 total",
+          "activities": "€40-60/dia",
+          "total_estimated": "R$ 7.500 - R$ 9.500",
+          "money_saving_tips": [
+            "Compre passes de museus para economizar",
+            "Faça piqueniques em parques",
+            "Use transporte público em vez de táxi",
+            "Visite museus nos primeiros domingos gratuitos",
+            "Compre em mercados locais em vez de restaurantes caros"
+          ]
         },
-        {
-            "id": 2,
-            "name": "Recomendação Inteligente de Bagagem",
-            "description": "Lista personalizada de itens essenciais para sua viagem, baseada em IA que considera clima, duração, atividades e destino específico.",
-            "price": "R$ 89,00",
-            "duration": "45 minutos",
-            "category": "Planejamento"
+        "weather": {
+          "climate_description": "Verão agradável com temperaturas moderadas",
+          "temperature_range": "15°C - 25°C",
+          "rain_probability": "Moderada - leve chuva ocasional",
+          "what_to_expect": "Dias longos e ensolarados, noites frescas, chuva eventual"
         },
-        {
-            "id": 3,
-            "name": "Roteiro Turístico Premium",
-            "description": "Roteiro exclusivo com pontos turísticos principais, lugares únicos, restaurantes selecionados e experiências autênticas locais.",
-            "price": "R$ 199,00",
-            "duration": "2 horas",
-            "category": "Turismo"
+        "useful_tips": [
+          "Agosto é alta temporada - reserve com antecedência",
+          "Muitos parisienses saem de férias em agosto",
+          "Lojas podem fechar entre 12h-14h",
+          "Aprenda algumas palavras básicas em francês",
+          "Tenha sempre água - fontes públicas disponíveis",
+          "Cuidado com pickpockets em áreas turísticas",
+          "Downloads mapas offline para economizar dados"
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "destination": "Tóquio, Japão",
+      "startDate": "2025-09-20",
+      "duration": "7",
+      "travelType": "Cultural",
+      "budget": "R$ 6.000",
+      "travelers": "1",
+      "userId": 2,
+      "status": "planned",
+      "createdAt": "2025-06-04T14:20:00.000Z",
+      "travelPlan": {
+        "baggage": {
+          "clothes": [
+            "Roupas confortáveis e respeitosas",
+            "Meias extras (retira-se sapatos frequentemente)",
+            "Jaqueta leve para setembro",
+            "Roupas em camadas",
+            "Sapatos fáceis de tirar e colocar"
+          ],
+          "hygiene": [
+            "Kit completo de higiene pessoal",
+            "Toalhas pequenas (hotéis japoneses)",
+            "Medicamentos pessoais"
+          ],
+          "accessories": [
+            "Máscara facial (costume local)",
+            "Carteira pequena",
+            "Mochila day-pack"
+          ],
+          "electronics": [
+            "Adaptador japonês",
+            "JR Pass (comprar antes)",
+            "App tradutor offline"
+          ],
+          "documents": [
+            "Passaporte",
+            "JR Pass voucher",
+            "Seguro viagem"
+          ],
+          "luggage_size": "Mala pequena/média - transporte público intenso"
         },
-        {
-            "id": 4,
-            "name": "Orçamento e Planejamento Financeiro",
-            "description": "Estimativa detalhada de custos da viagem com dicas de economia, melhores épocas para viajar e estratégias para maximizar seu orçamento.",
-            "price": "R$ 149,00",
-            "duration": "1,5 horas",
-            "category": "Planejamento"
+        "tourism": {
+          "attractions": [
+            "Templo Senso-ji em Asakusa",
+            "Santuário Meiji",
+            "Mercado Tsukiji",
+            "Distrito Shibuya",
+            "Palácio Imperial"
+          ],
+          "hidden_gems": [
+            "Jardim Shinjuku Gyoen",
+            "Bairro Yanaka tradicional",
+            "Memory Lane (Omoide Yokocho)"
+          ],
+          "daily_itinerary": [
+            "Dia 1: Chegada e Asakusa",
+            "Dia 2: Shibuya e Harajuku",
+            "Dia 3: Tsukiji e Ginza",
+            "Dia 4: Templos e jardins tradicionais",
+            "Dia 5: Shinjuku e vida noturna",
+            "Dia 6: Museus e compras",
+            "Dia 7: Últimas compras e partida"
+          ],
+          "food_recommendations": [
+            "Ramen autêntico em Ichiran",
+            "Sushi no Tsukiji",
+            "Yakitori em Omoide Yokocho",
+            "Tempura tradicional"
+          ],
+          "cultural_tips": [
+            "Curve ao cumprimentar",
+            "Não coma andando",
+            "Retire sapatos em locais apropriados",
+            "Não fale alto no transporte público"
+          ],
+          "transportation": [
+            "JR Pass para trens",
+            "Cartão IC para transporte local",
+            "Metrô Tóquio"
+          ]
         },
-        {
-            "id": 5,
-            "name": "Assistência para Documentação",
-            "description": "Orientação completa sobre documentos necessários, vistos, vacinas obrigatórias e procedimentos burocráticos para seu destino.",
-            "price": "R$ 129,00",
-            "duration": "1 hora",
-            "category": "Documentação"
+        "budget": {
+          "accommodation": "¥8.000-12.000/dia",
+          "food": "¥4.000-6.000/dia",
+          "transportation": "¥15.000 total (JR Pass)",
+          "activities": "¥3.000-5.000/dia",
+          "total_estimated": "R$ 5.800 - R$ 7.200",
+          "money_saving_tips": [
+            "Use JR Pass para economizar",
+            "Coma em konbinis (lojas de conveniência)",
+            "Visite templos gratuitos",
+            "Aproveite parques públicos"
+          ]
         },
-        {
-            "id": 6,
-            "name": "Seguro Viagem Personalizado",
-            "description": "Análise e recomendação do melhor seguro viagem baseado no seu perfil, destino e atividades planejadas.",
-            "price": "R$ 79,00",
-            "duration": "30 minutos",
-            "category": "Seguro"
+        "weather": {
+          "climate_description": "Outono início - agradável e seco",
+          "temperature_range": "18°C - 28°C",
+          "rain_probability": "Baixa",
+          "what_to_expect": "Tempo estável, início das cores outono"
         },
-        {
-            "id": 7,
-            "name": "Reserva de Hospedagem Premium",
-            "description": "Consultoria e reserva de acomodações especiais, desde hotéis boutique até experiências únicas como casas locais e eco-lodges.",
-            "price": "R$ 199,00",
-            "duration": "2 horas",
-            "category": "Hospedagem"
+        "useful_tips": [
+          "Baixe apps de tradução",
+          "Sempre tenha dinheiro - país ainda é cash-based",
+          "Respeite as regras sociais rigorosas",
+          "Aprenda algumas palavras básicas em japonês"
+        ]
+      }
+    },
+    {
+      "id": "a14e",
+      "destination": "Paris, França",
+      "startDate": "2025-06-20",
+      "duration": "3",
+      "travelType": "Gastronômico",
+      "budget": "15000",
+      "travelers": "1",
+      "userId": "1",
+      "status": "planned",
+      "createdAt": "2025-06-16T18:33:05.206Z",
+      "travelPlan": {
+        "baggage": {
+          "clothes": [
+            "Vestido leve de algodão",
+            "Calça jeans",
+            "Blusa de linho",
+            "Casaco leve (para as noites mais frescas)",
+            "Sapatos confortáveis para caminhar"
+          ],
+          "hygiene": [
+            "Escova de dentes e pasta",
+            "Shampoo e condicionador (tamanho viagem)",
+            "Protetor solar FPS 30 ou superior",
+            "Desodorante",
+            "Kit de primeiros socorros"
+          ],
+          "accessories": [
+            "Carteira com dinheiro e cartões",
+            "Celular com carregador portátil",
+            "Chapéu ou boné",
+            "Óculos de sol"
+          ],
+          "electronics": [
+            "Smartphone com adaptador de tomada",
+            "Câmera fotográfica",
+            "Carregador portátil",
+            "Adaptador de tomada"
+          ],
+          "documents": [
+            "Passaporte válido",
+            "Passagem aérea",
+            "Reserva de hotel",
+            "Cartão de crédito internacional"
+          ],
+          "luggage_size": "Mala de bordo média (55x35x25cm)"
         },
-        {
-            "id": 8,
-            "name": "Transporte e Logística",
-            "description": "Planejamento completo de transporte: passagens aéreas, transfers, aluguel de veículos e transporte público local.",
-            "price": "R$ 179,00",
-            "duration": "1,5 horas",
-            "category": "Transporte"
-        }
-    ],
-    "travels": [
-        {
-            "id": 1,
-            "destination": "Paris, França",
-            "startDate": "2025-08-15",
-            "duration": "10",
-            "travelType": "Romântico",
-            "budget": "R$ 8.000",
-            "travelers": "2",
-            "userId": 1,
-            "status": "planned",
-            "createdAt": "2025-06-04T10:30:00.000Z",
-            "travelPlan": {
-                "baggage": {
-                    "clothes": [
-                        "Roupas elegantes para jantares românticos",
-                        "Sapatos confortáveis para caminhadas",
-                        "Casaco para o clima de agosto",
-                        "Roupas casuais para passeios diurnos",
-                        "Roupa íntima para 12 dias",
-                        "Pijamas confortáveis"
-                    ],
-                    "hygiene": [
-                        "Escova e pasta de dentes",
-                        "Shampoo e condicionador",
-                        "Desodorante",
-                        "Perfume especial",
-                        "Produtos de cuidado facial",
-                        "Protetor solar",
-                        "Medicamentos pessoais"
-                    ],
-                    "accessories": [
-                        "Óculos de sol",
-                        "Carteira e documentos",
-                        "Relógio",
-                        "Joias para ocasiões especiais",
-                        "Lenços e cachecóis",
-                        "Guarda-chuva compacto"
-                    ],
-                    "electronics": [
-                        "Carregador de celular",
-                        "Câmera fotográfica",
-                        "Adaptador de tomada europeu",
-                        "Power bank",
-                        "Fones de ouvido"
-                    ],
-                    "documents": [
-                        "Passaporte válido",
-                        "Visa (se necessário)",
-                        "Passagens aéreas",
-                        "Reservas de hotel",
-                        "Seguro viagem",
-                        "Cartão de crédito internacional",
-                        "Carteira de motorista internacional"
-                    ],
-                    "luggage_size": "Mala média (23kg) + bagagem de mão"
-                },
-                "tourism": {
-                    "attractions": [
-                        "Torre Eiffel - Vista panorâmica ao pôr do sol",
-                        "Museu do Louvre - Mona Lisa e obras clássicas",
-                        "Catedral de Notre-Dame - Arquitetura gótica",
-                        "Arco do Triunfo - História e vistas da Champs-Élysées",
-                        "Montmartre e Sacré-Cœur - Charme boêmio",
-                        "Cruzeiro no Rio Sena - Romance ao entardecer"
-                    ],
-                    "hidden_gems": [
-                        "Jardins de Luxembourg - Piquenique romântico",
-                        "Île Saint-Louis - Sorvetes da Berthillon",
-                        "Marché des Enfants Rouges - Mercado histórico",
-                        "Promenade Plantée - Parque elevado único",
-                        "Musée Rodin - Jardim de esculturas íntimo"
-                    ],
-                    "daily_itinerary": [
-                        "Dia 1-2: Chegada e Centro Histórico (Louvre, Île de la Cité)",
-                        "Dia 3-4: Montmartre e Norte de Paris",
-                        "Dia 5-6: Torre Eiffel, Champs-Élysées e Arco do Triunfo",
-                        "Dia 7-8: Versailles (bate-volta) e Saint-Germain",
-                        "Dia 9-10: Marais, compras e passeios finais"
-                    ],
-                    "food_recommendations": [
-                        "L'Ami Jean - Bistrô tradicional francês",
-                        "Du Pain et des Idées - Melhor padaria artesanal",
-                        "L'As du Fallafel - Especialidade do Marais",
-                        "Café de Flore - Café histórico em Saint-Germain",
-                        "Breizh Café - Crepes gourmet modernos",
-                        "Pierre Hermé - Macarons de alta qualidade"
-                    ],
-                    "cultural_tips": [
-                        "Franceses valorizam educação - sempre cumprimente",
-                        "Jantares são tardios (19h-21h)",
-                        "Domingos muitas lojas fecham",
-                        "Gorjetas são incluídas, mas 5-10% extras são apreciados",
-                        "Evite falar alto em transportes públicos"
-                    ],
-                    "transportation": [
-                        "Métro - Sistema eficiente, compre passe semanal",
-                        "Uber/Taxi - Para trajetos noturnos",
-                        "Vélib' - Bicicletas compartilhadas",
-                        "Caminhadas - Centro é muito walkable",
-                        "RER - Para Versailles e aeroportos"
-                    ]
-                },
-                "budget": {
-                    "accommodation": "€80-120/dia",
-                    "food": "€60-90/dia",
-                    "transportation": "€150 total",
-                    "activities": "€40-60/dia",
-                    "total_estimated": "R$ 7.500 - R$ 9.500",
-                    "money_saving_tips": [
-                        "Compre passes de museus para economizar",
-                        "Faça piqueniques em parques",
-                        "Use transporte público em vez de táxi",
-                        "Visite museus nos primeiros domingos gratuitos",
-                        "Compre em mercados locais em vez de restaurantes caros"
-                    ]
-                },
-                "weather": {
-                    "climate_description": "Verão agradável com temperaturas moderadas",
-                    "temperature_range": "15°C - 25°C",
-                    "rain_probability": "Moderada - leve chuva ocasional",
-                    "what_to_expect": "Dias longos e ensolarados, noites frescas, chuva eventual"
-                },
-                "useful_tips": [
-                    "Agosto é alta temporada - reserve com antecedência",
-                    "Muitos parisienses saem de férias em agosto",
-                    "Lojas podem fechar entre 12h-14h",
-                    "Aprenda algumas palavras básicas em francês",
-                    "Tenha sempre água - fontes públicas disponíveis",
-                    "Cuidado com pickpockets em áreas turísticas",
-                    "Downloads mapas offline para economizar dados"
-                ]
-            }
+        "tourism": {
+          "attractions": [
+            "Torre Eiffel - Ícone de Paris, com vista panorâmica da cidade.",
+            "Museu do Louvre - Lar da Mona Lisa e outras obras-primas da arte.",
+            "Catedral de Notre-Dame - Maravilhosa catedral gótica (verificar estado de reconstrução).",
+            "Arco do Triunfo - Monumento imponente com vista para a Champs-Élysées.",
+            "Palácio de Versalhes - Luxuoso palácio real nos arredores de Paris."
+          ],
+          "hidden_gems": [
+            "Le Marais - Bairro histórico com ruas charmosas e boutiques.",
+            "Canal Saint-Martin - Canal pitoresco com bares e restaurantes.",
+            "Jardin du Luxembourg - Jardim tranquilo e bonito no coração de Paris."
+          ],
+          "daily_itinerary": [
+            "Dia 1: Torre Eiffel, passeio pelo Champ de Mars, almoço no restaurante Les Ombres (vista Eiffel), visita ao Museu do Louvre, jantar no Le Bouillon Chartier (clássico parisiense).",
+            "Dia 2: Visita à Catedral de Notre-Dame (exterior, verificar estado de reconstrução), passeio pela Île de la Cité, almoço em um bistrô no bairro latino, visita ao Arco do Triunfo e Champs-Élysées, jantar no  Septime (Michelin Starred - reserva essencial).",
+            "Dia 3: Viagem de trem para Versalhes (aprox. 40 min), visita ao Palácio de Versalhes e seus jardins, almoço em um restaurante em Versalhes, retorno a Paris, compras e jantar no Breizh Café (crepes deliciosos)."
+          ],
+          "food_recommendations": [
+            "Le Bouillon Chartier (comida tradicional francesa, acessível)",
+            "Les Ombres (cozinha contemporânea com vista para a Torre Eiffel)",
+            "Septime (Michelin Starred, cozinha inovadora - reserva essencial)",
+            "Breizh Café (crepes deliciosos)"
+          ],
+          "cultural_tips": [
+            "Aprenda algumas frases básicas em francês.",
+            "Respeite as filas e a etiqueta social francesa.",
+            "Aproveite para experimentar diferentes tipos de pães e queijos franceses."
+          ],
+          "transportation": [
+            "Metrô de Paris (bilhetes individuais ou passe Navigo): eficiente e acessível.",
+            "Táxis ou Uber: convenientes, mas mais caros.",
+            "Trem RER C para Versalhes (aprox. €7,60 ida e volta)."
+          ]
         },
-        {
-            "id": 2,
-            "destination": "Tóquio, Japão",
-            "startDate": "2025-09-20",
-            "duration": "7",
-            "travelType": "Cultural",
-            "budget": "R$ 6.000",
-            "travelers": "1",
-            "userId": 2,
-            "status": "planned",
-            "createdAt": "2025-06-04T14:20:00.000Z",
-            "travelPlan": {
-                "baggage": {
-                    "clothes": [
-                        "Roupas confortáveis e respeitosas",
-                        "Meias extras (retira-se sapatos frequentemente)",
-                        "Jaqueta leve para setembro",
-                        "Roupas em camadas",
-                        "Sapatos fáceis de tirar e colocar"
-                    ],
-                    "hygiene": [
-                        "Kit completo de higiene pessoal",
-                        "Toalhas pequenas (hotéis japoneses)",
-                        "Medicamentos pessoais"
-                    ],
-                    "accessories": [
-                        "Máscara facial (costume local)",
-                        "Carteira pequena",
-                        "Mochila day-pack"
-                    ],
-                    "electronics": [
-                        "Adaptador japonês",
-                        "JR Pass (comprar antes)",
-                        "App tradutor offline"
-                    ],
-                    "documents": [
-                        "Passaporte",
-                        "JR Pass voucher",
-                        "Seguro viagem"
-                    ],
-                    "luggage_size": "Mala pequena/média - transporte público intenso"
-                },
-                "tourism": {
-                    "attractions": [
-                        "Templo Senso-ji em Asakusa",
-                        "Santuário Meiji",
-                        "Mercado Tsukiji",
-                        "Distrito Shibuya",
-                        "Palácio Imperial"
-                    ],
-                    "hidden_gems": [
-                        "Jardim Shinjuku Gyoen",
-                        "Bairro Yanaka tradicional",
-                        "Memory Lane (Omoide Yokocho)"
-                    ],
-                    "daily_itinerary": [
-                        "Dia 1: Chegada e Asakusa",
-                        "Dia 2: Shibuya e Harajuku",
-                        "Dia 3: Tsukiji e Ginza",
-                        "Dia 4: Templos e jardins tradicionais",
-                        "Dia 5: Shinjuku e vida noturna",
-                        "Dia 6: Museus e compras",
-                        "Dia 7: Últimas compras e partida"
-                    ],
-                    "food_recommendations": [
-                        "Ramen autêntico em Ichiran",
-                        "Sushi no Tsukiji",
-                        "Yakitori em Omoide Yokocho",
-                        "Tempura tradicional"
-                    ],
-                    "cultural_tips": [
-                        "Curve ao cumprimentar",
-                        "Não coma andando",
-                        "Retire sapatos em locais apropriados",
-                        "Não fale alto no transporte público"
-                    ],
-                    "transportation": [
-                        "JR Pass para trens",
-                        "Cartão IC para transporte local",
-                        "Metrô Tóquio"
-                    ]
-                },
-                "budget": {
-                    "accommodation": "¥8.000-12.000/dia",
-                    "food": "¥4.000-6.000/dia",
-                    "transportation": "¥15.000 total (JR Pass)",
-                    "activities": "¥3.000-5.000/dia",
-                    "total_estimated": "R$ 5.800 - R$ 7.200",
-                    "money_saving_tips": [
-                        "Use JR Pass para economizar",
-                        "Coma em konbinis (lojas de conveniência)",
-                        "Visite templos gratuitos",
-                        "Aproveite parques públicos"
-                    ]
-                },
-                "weather": {
-                    "climate_description": "Outono início - agradável e seco",
-                    "temperature_range": "18°C - 28°C",
-                    "rain_probability": "Baixa",
-                    "what_to_expect": "Tempo estável, início das cores outono"
-                },
-                "useful_tips": [
-                    "Baixe apps de tradução",
-                    "Sempre tenha dinheiro - país ainda é cash-based",
-                    "Respeite as regras sociais rigorosas",
-                    "Aprenda algumas palavras básicas em japonês"
-                ]
-            }
-        }
-    ]
+        "budget": {
+          "accommodation": "€300 por dia (hotel 4 estrelas)",
+          "food": "€150 por dia",
+          "transportation": "€50",
+          "activities": "€200 por dia",
+          "total_estimated": "R$15000 (considerando cotação de €1 = R$6)",
+          "money_saving_tips": [
+            "Utilize o transporte público (metrô).",
+            "Aproveite os mercados locais para comprar comida e lanches.",
+            "Faça reservas antecipadas para restaurantes e atrações."
+          ]
+        },
+        "weather": {
+          "climate_description": "Junho em Paris é geralmente quente e ensolarado, com temperaturas médias agradáveis, mas pode haver chuvas ocasionais.",
+          "temperature_range": "15°C a 25°C",
+          "rain_probability": "Moderada, chuvas geralmente curtas e passageiras.",
+          "what_to_expect": "Leve em conta a possibilidade de chuva e prepare-se com um guarda-chuva ou capa de chuva leve.  Roupas leves são ideais, mas um casaco leve pode ser útil para as noites mais frescas."
+        },
+        "useful_tips": [
+          "Compre um passe de transporte público (Navigo Découverte) para economizar dinheiro.",
+          "Faça reservas de restaurantes com antecedência, especialmente para aqueles mais populares.",
+          "Aproveite os muitos parques e jardins de Paris para relaxar.",
+          "Esteja atento aos seus pertences, especialmente em locais turísticos movimentados.",
+          "Aprenda algumas frases básicas em francês para facilitar a comunicação."
+        ]
+      }
+    },
+    {
+      "id": "7b12",
+      "destination": "Gramado, Brasil",
+      "startDate": "2025-06-20",
+      "duration": "3",
+      "travelType": "Turismo",
+      "budget": "4600",
+      "travelers": "2",
+      "userId": "1",
+      "status": "planned",
+      "createdAt": "2025-06-16T18:41:01.438Z",
+      "travelPlan": {
+        "baggage": {
+          "clothes": [
+            "Casaco leve de lã",
+            "Calça jeans",
+            "Camisas de algodão",
+            "Vestido leve",
+            "Suéter fino"
+          ],
+          "hygiene": [
+            "Escova de dentes e pasta",
+            "Sabonete e shampoo",
+            "Protetor solar FPS 30 ou superior",
+            "Repelente de mosquitos",
+            "Medicamentos de uso pessoal"
+          ],
+          "accessories": [
+            "Chapéu ou boné",
+            "Óculos de sol",
+            "Carteira com dinheiro e documentos",
+            "Mochila pequena"
+          ],
+          "electronics": [
+            "Câmera fotográfica",
+            "Celular com carregador",
+            "Power bank",
+            "Adaptador de tomada (se necessário)"
+          ],
+          "documents": [
+            "RG ou CNH",
+            "Cartão de crédito e débito",
+            "Comprovante de reserva de hospedagem",
+            "Passagens aéreas (se aplicável)"
+          ],
+          "luggage_size": "Mochila média ou mala de bordo"
+        },
+        "tourism": {
+          "attractions": [
+            "Rua Coberta - arquitetura charmosa e lojas de artesanato.",
+            "Lago Negro - passeio de pedalinho e paisagens deslumbrantes.",
+            "Mini Mundo - réplicas de construções famosas em miniatura.",
+            "Parque do Caracol - cachoeira imponente e trilhas.",
+            "Catedral de Pedra - arquitetura gótica e imponência."
+          ],
+          "hidden_gems": [
+            "Cascata do Caracol (trilha alternativa)",
+            "Passeio a cavalo em meio às araucárias",
+            "Visita a uma fábrica de chocolate artesanal"
+          ],
+          "daily_itinerary": [
+            "Dia 1: Chegada em Gramado, check-in no hotel, passeio pela Rua Coberta, jantar no restaurante La Casona (comida italiana).",
+            "Dia 2: Visita ao Lago Negro (pedalinho), Mini Mundo, almoço no restaurante Família (comida típica gaúcha), visita à Catedral de Pedra.",
+            "Dia 3: Parque do Caracol, passeio de teleférico (opcional), almoço em um restaurante próximo ao parque, retorno para casa."
+          ],
+          "food_recommendations": [
+            "Restaurante La Casona (italiana)",
+            "Restaurante Família (gaúcha)",
+            "Chocolate artesanal em lojas locais",
+            "Fondue em um restaurante especializado"
+          ],
+          "cultural_tips": [
+            "Experimentar o chocolate artesanal de Gramado.",
+            "Visitar as lojas de artesanato na Rua Coberta.",
+            "Apreciar a arquitetura europeia da cidade."
+          ],
+          "transportation": [
+            "Táxi ou Uber para deslocamentos dentro da cidade (R$ 30-50 por corrida).",
+            "Aluguel de carro para maior flexibilidade (R$ 150-250 por dia).",
+            "Ônibus urbano (custo baixo, mas com rotas limitadas)."
+          ]
+        },
+        "budget": {
+          "accommodation": "R$ 500 por dia",
+          "food": "R$ 300 por dia",
+          "transportation": "R$ 300 (considerando Uber/Táxi)",
+          "activities": "R$ 500 (ingressos e atividades)",
+          "total_estimated": "R$ 4600",
+          "money_saving_tips": [
+            "Procurar por promoções de ingressos para atrações.",
+            "Utilizar o transporte público sempre que possível.",
+            "Fazer piqueniques em alguns dos parques da cidade."
+          ]
+        },
+        "weather": {
+          "climate_description": "Junho em Gramado é inverno, com temperaturas baixas, possibilidade de geadas e chuvas esparsas.",
+          "temperature_range": "5°C a 15°C",
+          "rain_probability": "Alta probabilidade de chuva, principalmente à noite.  É recomendável levar um guarda-chuva.",
+          "what_to_expect": "Dias frios e com possibilidade de chuva.  Prepare-se para temperaturas baixas, principalmente à noite."
+        },
+        "useful_tips": [
+          "Embale roupas adequadas para o frio.",
+          "Reserve os hotéis com antecedência, principalmente se estiver viajando em alta temporada.",
+          "Verifique a previsão do tempo antes de sair para passeios.",
+          "Leve dinheiro em espécie para pequenas compras e gorjetas.",
+          "Aproveite para degustar os chocolates e vinhos locais."
+        ]
+      }
+    }
+  ]
 }

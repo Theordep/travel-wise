@@ -29,16 +29,6 @@ function Footer() {
                                     📞 Contato
                                 </a>
                             </li>
-                            <li>
-                                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
-                                    🔒 Privacidade
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">
-                                    📋 Termos de Uso
-                                </a>
-                            </li>
                         </ul>
                     </div>
 
@@ -48,11 +38,15 @@ function Footer() {
                         <div className="space-y-2 text-sm text-gray-300">
                             <p className="flex items-center space-x-2">
                                 <span>📧</span>
-                                <span>contato@travelwise.com</span>
+                                <span>pedrobrernesto@hotmail.com</span>
+                            </p>
+                            <p className="flex items-center space-x-2">
+                                <span>📧</span>
+                                <span>alexfabreu.satc@gmail.com</span>
                             </p>
                             <p className="flex items-center space-x-2">
                                 <span>📱</span>
-                                <span>(11) 99999-9999</span>
+                                <span>(48) 4002-8922</span>
                             </p>
                             <p className="flex items-center space-x-2">
                                 <span>📍</span>
@@ -65,8 +59,8 @@ function Footer() {
                 {/* Copyright */}
                 <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
                     <p>
-                        © 2025 TravelWise. Todos os direitos reservados.
-                        Desenvolvido com ❤️ por estudantes de Front-end.
+                        © 2025 TravelWise.
+                        Desenvolvido por Pedro Ernesto e Alex Farias - Frontend, quarta.
                     </p>
                 </div>
             </div>

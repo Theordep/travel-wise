@@ -13,7 +13,7 @@ function NavBar() {
     const navLinks = [
         { to: '/app/home', label: 'Home', icon: '🏠' },
         { to: '/app/travel-planner', label: 'Planejar Viagem', icon: '✈️' },
-        { to: '/app/services', label: 'Serviços', icon: '🛎️' },
+        { to: '/app/my-travels', label: 'Minhas Viagens', icon: '🗺️' }, // ✅ ALTERADO
         { to: '/app/users', label: 'Usuários', icon: '👥' }
     ]
 
