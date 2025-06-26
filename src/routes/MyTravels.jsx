@@ -235,12 +235,12 @@ function MyTravels() {
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="flex justify-between items-center">
-                <div>
+            <div className="flex-col items-center">
+                <div className="flex-row justify-center">
                     <h1 className="text-3xl font-bold text-gray-800">🗺️ Minhas Viagens</h1>
                     <p className="text-gray-600 mt-1">Gerencie e visualize suas viagens planejadas</p>
                 </div>
-                <div className="flex space-x-3">
+                <div className="flex justify-center m-10 space-x-3">
                     <button
                         onClick={() => navigate('/app/travel-planner')}
                         className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg flex items-center space-x-2 transition-colors duration-200"

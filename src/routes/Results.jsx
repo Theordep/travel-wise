@@ -74,19 +74,19 @@ function Results() {
                             ✈️ Seu Plano de Viagem Personalizado
                         </h1>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 text-blue-100">
-                            <div>
+                            <div className="flex-col justify-center">
                                 <span className="block text-sm">Destino</span>
                                 <span className="font-semibold">{travel.destination}</span>
                             </div>
-                            <div>
+                            <div className="flex-col justify-center">
                                 <span className="block text-sm">Data</span>
                                 <span className="font-semibold">{formatDate(travel.startDate)}</span>
                             </div>
-                            <div>
+                            <div className="flex-col justify-center">
                                 <span className="block text-sm">Duração</span>
                                 <span className="font-semibold">{travel.duration} dias</span>
                             </div>
-                            <div>
+                            <div className="flex-col justify-center">
                                 <span className="block text-sm">Tipo</span>
                                 <span className="font-semibold">{travel.travelType}</span>
                             </div>
@@ -101,7 +101,7 @@ function Results() {
             {/* Tabs Navigation */}
             <div className="bg-white rounded-lg shadow-lg mb-8">
                 <div className="border-b border-gray-200">
-                    <nav className="flex space-x-8 px-6">
+                    <nav className="flex justify-start px-6">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.id}
@@ -448,7 +448,7 @@ function Results() {
             <div className="flex justify-center space-x-4 mb-8">
                 <button
                     onClick={() => navigate('/app/travel-planner')}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                    className="flex-col justify-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 space-x-2"
                 >
                     <span>➕</span>
                     <span>Nova Viagem</span>
@@ -456,7 +456,7 @@ function Results() {
 
                 <button
                     onClick={() => window.print()}
-                    className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                    className="flex-col justify-center bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 space-x-2"
                 >
                     <span>🖨️</span>
                     <span>Imprimir</span>
@@ -464,7 +464,7 @@ function Results() {
 
                 <button
                     onClick={() => navigate('/app/home')}
-                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2"
+                    className="flex-col justify-center bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-colors duration-200 space-x-2"
                 >
                     <span>🏠</span>
                     <span>Voltar ao Início</span>

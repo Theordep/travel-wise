@@ -554,6 +554,115 @@
           "Aproveite para degustar os chocolates e vinhos locais."
         ]
       }
+    },
+    {
+      "id": "446e",
+      "destination": "Criciúma, Santa Catarina",
+      "startDate": "2025-06-26",
+      "duration": "15",
+      "travelType": "Negócios",
+      "budget": "100000",
+      "travelers": "12",
+      "userId": "1",
+      "status": "planned",
+      "createdAt": "2025-06-26T21:06:18.719Z",
+      "travelPlan": {
+        "baggage": {
+          "clothes": [
+            "Casaco leve de lã",
+            "Calças jeans",
+            "Camisas de algodão",
+            "Blusas de manga comprida",
+            "Sapatos confortáveis"
+          ],
+          "hygiene": [
+            "Kit de higiene pessoal completo",
+            "Protetor solar FPS 30 ou superior",
+            "Repelente de mosquitos",
+            "Medicamentos de uso pessoal (com receita médica se necessário)",
+            "Lenços umedecidos"
+          ],
+          "accessories": [
+            "Guarda-chuva",
+            "Mochila",
+            "Carteira com dinheiro e documentos",
+            "Adaptador de tomada (se necessário)"
+          ],
+          "electronics": [
+            "Notebook",
+            "Smartphone",
+            "Carregadores",
+            "Power bank"
+          ],
+          "documents": [
+            "Passaporte ou RG",
+            "CPF",
+            "Cartão de crédito",
+            "Documentos da empresa para a viagem de negócios"
+          ],
+          "luggage_size": "Mala de viagem média (tamanho que permita levar tudo confortavelmente)"
+        },
+        "tourism": {
+          "attractions": [
+            "Morro Crippa - Vista panorâmica da cidade e região.",
+            "Parque Nacional de São Joaquim - Trilhas e paisagens naturais.",
+            "Catedral São José - Arquitetura histórica e religiosa.",
+            "Museu Histórico de Criciúma - Conhecer a história da cidade.",
+            "Lagoa da Conceição (Florianópolis -  aprox. 1h30 de carro) -  Passeio turístico próximo."
+          ],
+          "hidden_gems": [
+            "Trilhas na região serrana próxima a Criciúma (pesquisar opções locais)",
+            "Mirante em local com vista para o Vale do Rio Araranguá (pesquisar opções locais)",
+            "Fazendas de produção de vinhos da região (pesquisar opções locais)"
+          ],
+          "daily_itinerary": [
+            "Dia 1: Chegada em Criciúma, check-in no hotel (sugestão: Hotel Deville Criciúma), reunião de alinhamento da equipe, jantar no Restaurante Casa do Gaúcho.",
+            "Dia 2: Visita ao Morro Crippa, reunião de negócios, almoço no Restaurante Sabores da Terra, visita ao Museu Histórico de Criciúma.",
+            "Dia 3: Viagem para o Parque Nacional de São Joaquim (transporte próprio ou locação de vans), trilhas, almoço com piquenique, retorno para Criciúma, jantar livre."
+          ],
+          "food_recommendations": [
+            "Restaurante Casa do Gaúcho (churrasco)",
+            "Restaurante Sabores da Terra (culinária regional)",
+            "Pastelaria Criciúma (lanches e petiscos)",
+            "Pizzeria Don Alfredo (pizzas)"
+          ],
+          "cultural_tips": [
+            "Experimentar o tradicional churrasco gaúcho.",
+            "Visitar a Catedral São José e apreciar sua arquitetura.",
+            "Interagir com os moradores locais e aprender sobre a cultura da região."
+          ],
+          "transportation": [
+            "Táxis e aplicativos de transporte (Uber, 99): Preços variáveis, dependendo da distância.",
+            "Locação de vans para grupos: Cotar preços com empresas locais (considerar 12 pessoas).",
+            "Transporte próprio (carros): Ideal para maior flexibilidade, porém requer custos com estacionamento e combustível."
+          ]
+        },
+        "budget": {
+          "accommodation": "R$ 500,00 por dia (considerando acomodação para 12 pessoas em suítes ou apartamentos interligados)",
+          "food": "R$ 150,00 por pessoa por dia",
+          "transportation": "R$ 10.000,00 (estimado, considerando locação de vans e outros custos)",
+          "activities": "R$ 100,00 por pessoa por dia",
+          "total_estimated": "R$ 70.000,00 (estimativa, podendo variar conforme os gastos)",
+          "money_saving_tips": [
+            "Utilizar transporte público ou aplicativos de transporte compartilhado sempre que possível.",
+            "Procurar por opções de alimentação mais acessíveis, como restaurantes locais.",
+            "Planejar as atividades com antecedência para evitar custos extras."
+          ]
+        },
+        "weather": {
+          "climate_description": "Junho em Criciúma apresenta clima frio e úmido, com temperaturas baixas e possibilidade de chuva. É o inverno na região.",
+          "temperature_range": "8°C a 18°C",
+          "rain_probability": "Alta probabilidade de chuva, principalmente à noite.",
+          "what_to_expect": "Dias frios e úmidos, com necessidade de roupas adequadas para o frio e chuva. É importante estar preparado para mudanças climáticas repentinas."
+        },
+        "useful_tips": [
+          "Confirme os horários de funcionamento dos locais antes de visitá-los.",
+          "Leve dinheiro em espécie para pequenas compras e gorjetas.",
+          "Verifique a previsão do tempo antes de sair para os passeios.",
+          "Pesquise por opções de restaurantes e atividades com antecedência.",
+          "Faça reservas em hotéis e transporte com antecedência, principalmente para um grupo grande."
+        ]
+      }
     }
   ]
 }

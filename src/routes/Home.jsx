@@ -300,16 +300,16 @@ function Home() {
                 <p className="text-lg text-green-100 mb-6">
                     Deixe nossa IA cuidar dos detalhes enquanto você sonha com o destino
                 </p>
-                <div className="space-x-4">
+                <div className="flex-col items-center">
                     <button
                         onClick={() => navigate('/app/travel-planner')}
-                        className="bg-white text-green-600 font-semibold px-8 py-3 rounded-lg hover:bg-green-50 transition-colors duration-200"
+                        className="bg-white tex t-green-600 font-semibold px-8 py-3 m-2 rounded-lg hover:bg-green-50 transition-colors duration-200"
                     >
                         🚀 Planejar Agora
                     </button>
                     <button
                         onClick={() => navigate('/app/my-travels')}
-                        className="bg-transparent border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-green-600 transition-colors duration-200"
+                        className="bg-transparent border-2 border-white text-white font-semibold px-8 py-3 m-2 rounded-lg hover:bg-white hover:text-green-600 transition-colors duration-200"
                     >
                         🗺️ Minhas Viagens
                     </button>
